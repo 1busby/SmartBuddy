@@ -3,10 +3,14 @@
 
     <!-- "Mark Favorite", should appear as action button if possible -->
     <item
-        android:id="@+id/action_favorite"
+        android:id="@+id/action_alarm"
         android:icon="@android:drawable/ic_lock_idle_alarm"
         android:title="@string/action_alarm"
         app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_tasks"
+        android:title="@string/action_tasks"
+        app:showAsAction="never"/>
 
    <!-- Settings, should always be in the overflow -->
     <item android:id="@+id/action_settings"

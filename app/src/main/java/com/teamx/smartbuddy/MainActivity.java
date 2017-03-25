@@ -1,27 +1,76 @@
 package com.teamx.smartbuddy;
 
-import android.app.ActionBar;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
-import com.teamx.smartbuddy.dummy.DummyContent;
+import com.teamx.smartbuddy.event.EventContent;
 
 public class MainActivity extends AppCompatActivity implements EventFragment.OnListFragmentInteractionListener {
+
+    private final String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-        myToolbar.setTitle("");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        //getActionBar().setTitle("Wednesday, March 24");
+        try {
+            getSupportActionBar().setTitle("Saturday, March 25");
+        } catch (NullPointerException e) {
+            Log.v(LOG_TAG, e.toString());
+        }
+
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(EventContent.EventItem item) {
 
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        // Close Database
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mainmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_tasks:
+                startTaskListActivity();
+                return true;
+
+            case R.id.action_alarm:
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+    private void startTaskListActivity() {
+        Intent intent = new Intent(this, TaskListActivity.class);
+        startActivity(intent);
+
+    }
+
 }

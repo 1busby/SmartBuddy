@@ -1,4 +1,4 @@
-package com.teamx.smartbuddy.dummy;
+package com.teamx.smartbuddy.event;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,10 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Helper class for providing sample content for user interfaces created by
- * Android template wizards.
- * <p>
- * TODO: Replace all uses of this class before publishing your app.
+ *
+ *
  */
 public class EventContent {
 
@@ -26,11 +24,11 @@ public class EventContent {
     private static final int COUNT = 25;
 
     static {
-        addItem(createDummyItem(1, "Wake Up", "8:00 AM"));
-        addItem(createDummyItem(2, "Shower", "8:05 AM"));
-        addItem(createDummyItem(3, "Get Dressed", "8:15 AM"));
-        addItem(createDummyItem(4, "Breakfast", "8:25 AM"));
-        addItem(createDummyItem(5, "Leave", "9:00 AM"));
+        addItem(createEventItem(1, "Wake Up", "8:00 AM"));
+        addItem(createEventItem(2, "Shower", "8:05 AM"));
+        addItem(createEventItem(3, "Get Dressed", "8:15 AM"));
+        addItem(createEventItem(4, "Breakfast", "8:25 AM"));
+        addItem(createEventItem(5, "Leave", "9:00 AM"));
     }
 
     private static void addItem(EventItem item) {
@@ -38,7 +36,7 @@ public class EventContent {
         ITEM_MAP.put(item.id, item);
     }
 
-    private static EventItem createDummyItem(int position, String eventName, String time) {
+    private static EventItem createEventItem(int position, String eventName, String time) {
         return new EventItem(String.valueOf(position), eventName, time, makeDetails(position));
     }
 
