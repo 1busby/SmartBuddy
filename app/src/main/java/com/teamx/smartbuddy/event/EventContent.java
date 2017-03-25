@@ -21,14 +21,13 @@ public class EventContent {
      */
     public static final Map<String, EventItem> ITEM_MAP = new HashMap<String, EventItem>();
 
-    private static final int COUNT = 25;
-
     static {
         addItem(createEventItem(1, "Wake Up", "8:00 AM"));
         addItem(createEventItem(2, "Shower", "8:05 AM"));
         addItem(createEventItem(3, "Get Dressed", "8:15 AM"));
         addItem(createEventItem(4, "Breakfast", "8:25 AM"));
-        addItem(createEventItem(5, "Leave", "9:00 AM"));
+        addItem(createEventItem(5, "Leave", "8:45 AM"));
+        addItem(createEventItem(6, "Arrive", "9:00 AM"));
     }
 
     private static void addItem(EventItem item) {

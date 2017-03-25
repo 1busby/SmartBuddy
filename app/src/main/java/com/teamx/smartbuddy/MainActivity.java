@@ -1,6 +1,7 @@
 package com.teamx.smartbuddy;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements EventFragment.OnL
         } catch (NullPointerException e) {
             Log.v(LOG_TAG, e.toString());
         }
+
+        //MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.sound_file_1);
+        //mediaPlayer.start(); // no need to call prepare(); create() does that for you
 
     }
 
@@ -58,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements EventFragment.OnL
                 return true;
 
             case R.id.action_alarm:
-
+                startDestinationActivity();
                 return true;
 
             default:
@@ -69,6 +73,12 @@ public class MainActivity extends AppCompatActivity implements EventFragment.OnL
 
     private void startTaskListActivity() {
         Intent intent = new Intent(this, TaskListActivity.class);
+        startActivity(intent);
+
+    }
+
+    private void startDestinationActivity() {
+        Intent intent = new Intent(this, DestinationActivity.class);
         startActivity(intent);
 
     }
