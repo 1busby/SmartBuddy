@@ -11,32 +11,35 @@ import java.util.Map;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class DummyContent {
+public class EventContent {
 
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static final List<EventItem> ITEMS = new ArrayList<EventItem>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static final Map<String, EventItem> ITEM_MAP = new HashMap<String, EventItem>();
 
     private static final int COUNT = 25;
 
     static {
         addItem(createDummyItem(1, "Wake Up", "8:00 AM"));
-        addItem(createDummyItem(2, "Shower ", "8:05 AM"));
+        addItem(createDummyItem(2, "Shower", "8:05 AM"));
+        addItem(createDummyItem(3, "Get Dressed", "8:15 AM"));
+        addItem(createDummyItem(4, "Breakfast", "8:25 AM"));
+        addItem(createDummyItem(5, "Leave", "9:00 AM"));
     }
 
-    private static void addItem(DummyItem item) {
+    private static void addItem(EventItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
-    private static DummyItem createDummyItem(int position, String eventName, String time) {
-        return new DummyItem(String.valueOf(position), eventName, time, makeDetails(position));
+    private static EventItem createDummyItem(int position, String eventName, String time) {
+        return new EventItem(String.valueOf(position), eventName, time, makeDetails(position));
     }
 
     private static String makeDetails(int position) {
@@ -51,13 +54,13 @@ public class DummyContent {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class DummyItem {
+    public static class EventItem {
         public final String id;
         public final String event;
         public final String time;
         public final String details;
 
-        public DummyItem(String id, String event, String time, String details) {
+        public EventItem(String id, String event, String time, String details) {
             this.id = id;
             this.event = event;
             this.time = time;
